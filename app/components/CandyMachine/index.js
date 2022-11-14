@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Connection, PublicKey } from "@solana/web3.js";
 import { Program, AnchorProvider, web3 } from "@project-serum/anchor";
 import { MintLayout, TOKEN_PROGRAM_ID, Token } from "@solana/spl-token";
 import { sendTransactions } from "./connection";
-import "./CandyMachine.css";
+
+
 import {
     candyMachineProgram,
     TOKEN_METADATA_PROGRAM_ID,
@@ -13,6 +14,7 @@ import {
     getNetworkToken,
     CIVIC,
 } from "./helpers";
+
 
 const { SystemProgram } = web3;
 const opts = {
@@ -232,10 +234,74 @@ const CandyMachine = ({ walletAddress }) => {
         return [];
     };
 
+    useEffect(() => {
+        getCandyMachineState();
+    }, []);
+
+    const getProvider = () => {
+        const rpcHost = process.env.NEXT_PUBLIC_SOLANA_RPC_HOST;
+        // Create a new connection object
+        const connection = new Connection(rpcHost);
+
+        // Create a new Solana provider object
+        const provider = new AnchorProvider(
+            connection,
+            window.solana,
+            opts.preflightCommitment
+        );
+
+        return provider;
+    };
+
+    // Declare getCandyMachineState as an async method
+    const getCandyMachineState = async () => {
+        const provider = getProvider();
+
+        // Get metadata about your deployed candy machine program
+        // In order for us to talk to our candy machine, we need the IDL and a Program object
+        // Program is an object that we can use to actually directly interact with the candy machine
+        // We are creating a connection to Solana similar to creating a DB connection in web2
+        // Our candy machine is just a Solana program that lives on Metaplex
+        const idl = await Program.fetchIdl(candyMachineProgram, provider);
+
+        // Create a program that you can call
+        const program = new Program(idl, candyMachineProgram, provider);
+
+        // Fetch the metadata from your candy machine
+        // When we run 'fetch', we are actually hitting the Solana Devnet to retrieve this data
+        // Looks a lot like we're hitting an API, but we're actually hitting the blockchain
+        const candyMachine = await program.account.candyMachine.fetch(
+            process.env.NEXT_PUBLIC_CANDY_MACHINE_ID
+        );
+
+        // Parse out all our metadata and log it out
+        const itemsAvailable = candyMachine.data.itemsAvailable.toNumber();
+        const itemsRedeemed = candyMachine.itemsRedeemed.toNumber();
+        const itemsRemaining = itemsAvailable - itemsRedeemed;
+        const goLiveData = candyMachine.data.goLiveDate.toNumber();
+        const presale =
+            candyMachine.data.whitelistMintSettings &&
+            candyMachine.data.whitelistMintSettings.presale &&
+            (!candyMachine.data.goLiveDate ||
+              candyMachine.data.goLiveDate.toNumber() > new Date().getTime() / 1000);
+
+        // We will be using this later in our UI so let's generate this now
+        const goLiveDateTimeString = `${new Date(goLiveData * 1000).toGMTString()}`
+
+        console.log({
+            itemsAvailable,
+            itemsRedeemed,
+            itemsRemaining,
+            goLiveData,
+            goLiveDateTimeString,
+            presale,
+        });
+    };
+
     return (
         <div className="machine-container">
-            <p>Drop Date:</p>
-            <p>Items Minted:</p>
+            <div>Drop Date:</div>
+            <div>Items Minted:</div>
             <button className="cta-button mint-button" onClick={mintToken}>
                 Mint NFT
             </button>

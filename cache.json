@@ -1,0 +1,33 @@
+{
+  "program": {
+    "candyMachine": "253Vupi9hJjjtdiNY4HHE3xFwnhjcVSdv7TXNVHGdQq2",
+    "candyMachineCreator": "21kKNzBSGmm4b88F1bpfSXTiYnuWtTSzHYmW7vwWeLym",
+    "collectionMint": ""
+  },
+  "items": {
+    "0": {
+      "name": "LADY",
+      "image_hash": "fccaf30f10c70695ba47e90ac14eb7717c74f2a070a2169ecee0806a642937ef",
+      "image_link": "https://nftstorage.link/ipfs/bafybeih6n7nvnuq27vbwmxzk2bhi7dyajnk3szoiwpzrshv4lzd76ii4de/0.png",
+      "metadata_hash": "bf971c67842ca36d15b54327e7eead15869e44ba9b46f2d4bb67406f04e375e9",
+      "metadata_link": "https://nftstorage.link/ipfs/bafybeibu3u44mxjzjjikuw6dsyhog3uuqxkeodadldkdn5abgxxrwkn5te/0.json",
+      "onChain": true
+    },
+    "1": {
+      "name": "LILIES",
+      "image_hash": "5e7646d1eceffafadc64d20be45bcf1672d18100e0ab16eb50412fa72c6979d5",
+      "image_link": "https://nftstorage.link/ipfs/bafybeih6n7nvnuq27vbwmxzk2bhi7dyajnk3szoiwpzrshv4lzd76ii4de/1.png",
+      "metadata_hash": "93942717bcd4477cbf8171059af1a19831c256de4689cd9fa47104897a2f3c22",
+      "metadata_link": "https://nftstorage.link/ipfs/bafybeibu3u44mxjzjjikuw6dsyhog3uuqxkeodadldkdn5abgxxrwkn5te/1.json",
+      "onChain": true
+    },
+    "2": {
+      "name": "SUNRISE",
+      "image_hash": "125a867e7ca314d933e3f4fc4c0503ddbd67240e2e20b246614ceb5ef5a7d153",
+      "image_link": "https://nftstorage.link/ipfs/bafybeih6n7nvnuq27vbwmxzk2bhi7dyajnk3szoiwpzrshv4lzd76ii4de/2.png",
+      "metadata_hash": "ca6e59fa17b4b99ea0f5fe0485ef99dd5d2d11f3345c98e561e1b2d7adf1c5fe",
+      "metadata_link": "https://nftstorage.link/ipfs/bafybeibu3u44mxjzjjikuw6dsyhog3uuqxkeodadldkdn5abgxxrwkn5te/2.json",
+      "onChain": true
+    }
+  }
+}
