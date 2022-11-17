@@ -1,2 +1,2 @@
-{"v":0,"name":"sugar","msg":"Lend me some sugar, I am your neighbor.","level":30,"hostname":"Brandons-MacBook-Pro-2.local","pid":17815,"time":"2022-11-14T02:59:02.250054Z","target":"sugar","line":116,"file":"src/main.rs"}
-{"v":0,"name":"sugar","msg":"MissingFileError(\"config.json\")","level":50,"hostname":"Brandons-MacBook-Pro-2.local","pid":17815,"time":"2022-11-14T02:59:02.254558Z","target":"sugar_cli::config::parser","line":21,"file":"src/config/parser.rs"}
+{"v":0,"name":"sugar","msg":"Lend me some sugar, I am your neighbor.","level":30,"hostname":"Brandons-MacBook-Pro-2.local","pid":30515,"time":"2022-11-15T12:07:32.792691Z","target":"sugar","line":116,"file":"src/main.rs"}
+{"v":0,"name":"sugar","msg":"MissingFileError(\"config.json\")","level":50,"hostname":"Brandons-MacBook-Pro-2.local","pid":30515,"time":"2022-11-15T12:07:32.796232Z","target":"sugar_cli::config::parser","line":21,"file":"src/config/parser.rs"}
